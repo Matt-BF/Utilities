@@ -22,29 +22,27 @@ parser.add_argument("[output name]", help="desired name for csv file")
 args = parser.parse_args()
 ################################################################################
 
-def infile_appender(dirs,num,infile_list):
-    for filename in os.listdir(dirs.split()[num]):
-        if filename.endswith(".out"):
+def infile_appender(dirs,infile_list):
+    for filename in os.listdir(dirs):
+        if filename.startswith("Orthogroups") and filename.endswith(".out"):
             infile_list.append(str(filename))
 
     return infile_list
 
-def BEB(infile):
+def BEB(directory,infile):
     with open(os.path.join(directory,infile)) as f:
         beb_values = []
         for line in f:
             if "Bayes Empirical Bayes (BEB)" in line:
                 remaining_lines = "".join(islice(f,None)).split("\n")
                 for remaining_line in remaining_lines:
-                    if "*" in remaining_line:
+                    if "*" in remaining_line and "Positively" not in remaining_line:
                         beb_values.append(int(remaining_line.split()[0]))
-        if len(beb_values)<1:
-            beb_values = np.nan
 
     return beb_values
 
 
-def model0_w(infile):
+def model0_w(directory,infile):
     with open(os.path.join(directory,infile)) as f:
         w_site_classes = []
         for line in f:
@@ -55,7 +53,7 @@ def model0_w(infile):
                         w_site_classes.append(float(remaining_line.split()[3]))
     return w_site_classes
 
-def model2_w(infile):
+def model2_w(directory,infile):
     with open(os.path.join(directory,infile)) as f:
         fore_back_values = []
         for line in f:
@@ -77,73 +75,65 @@ def dataframe_creator(fam_dict):
 
 ################################################################################
 
-directory = sys.argv[2]
-csv_name = sys.argv[3]
-
-
 
 if args.m0:
+    directory = sys.argv[2]
+    csv_name = sys.argv[3]
     fam_dict = {}
-    if len(directory.split())==1:
-        infiles = []
-        infiles = infile_appender(directory,0,infiles)
-    else:
-        print("Incorrect number of directories (pass 1 or 2 directories)")
-        sys.exit()
+    infiles = []
+    infiles = infile_appender(directory,infiles)
 
     for infile in infiles:
-        m0_w = model0_w(infile)
-        BEB_0 = BEB(infile)
-        fam_dict[infile.split(":")[0]] = [*model0_w(infile),BEB(infile)]
+        m0_w = model0_w(directory,infile)
+        BEB_0 = BEB(directory,infile)
+        fam_dict[infile.split(":")[0]] = [*m0_w,BEB_0]
 
     df = dataframe_creator(fam_dict)
     df.columns = ["model0_w","model0_BEB_sites"]
-    df.to_ ("{}.csv".format(csv_name),sep="\t")
+    df.to_csv("{}".format(csv_name),sep="\t")
 
 elif args.m2:
+    directory = sys.argv[2]
+    csv_name = sys.argv[3]
     fam_dict = {}
-    if len(directory.split())==1:
-        infiles = []
-        infiles = infile_appender(directory,0,infiles)
-    else:
-        print("Incorrect number of directories (pass 1 or 2 directories)")
-        sys.exit()
+    infiles = []
+    infiles = infile_appender(directory,infiles)
 
     for infile in infiles:
-        m2_w = model2_w(infile)
-        BEB_2 = BEB(infile)
+        m2_w = model2_w(directory,infile)
+        BEB_2 = BEB(directory,infile)
         fam_dict[infile.split(":")[0]] = [*m2_w,BEB_2]
 
     df = dataframe_creator(fam_dict)
     df.columns = ["background_w","foreground_w","model2_BEB_sites"]
-    df.to_csv("{}.csv".format(csv_name),sep="\t")
+    df.to_csv("{}".format(csv_name),sep="\t")
 
 elif args.both:
+    directory_1 = sys.argv[2]
+    directory_2 = sys.argv[3]
+    csv_name = sys.argv[4]
     fam_dict_1 = {}
     fam_dict_2 = {}
 
-    if len(directory.split())==2:
-        infiles_1 = []
-        infiles_2 = []
-        infiles_1 = infile_appender(directory,0,infiles_1)
-        infiles_2 = infile_appender(directory,0,infiles_2)
+    infiles_1 = []
+    infiles_2 = []
+    infiles_1 = infile_appender(directory_1,infiles_1)
+    infiles_2 = infile_appender(directory_2,infiles_2)
 
-    else:
-        print("Incorrect number of directories (pass 1 or 2 directories)")
-        sys.exit()
 
-    for infile in infiles_1:
-        m0_w = model0_w(infile)
-        m2_w = model2_w(infile)
-        BEB_0 = BEB(infile)
-        BEB_2 = BEB(infile)
-        fam_dict_1[infile.split(":")[0]] = [*m0_w(infile),BEB(infile)]
-    for infile in infiles_2:
-        fam_dict_2[infile.split(":")[0]] = [*m2_w(infile),BEB(infile)]
+    for infile_1 in infiles_1:
+        m0_w = model0_w(directory_1,infile_1)
+        BEB_0 = BEB(directory_1,infile_1)
+        fam_dict_1[infile_1.split(":")[0]] = [*m0_w,BEB_0]
+    
+    for infile_2 in infiles_2:
+        m2_w = model2_w(directory_2,infile_2)
+        BEB_2 = BEB(directory_2,infile_2)
+        fam_dict_2[infile_2.split(":")[0]] = [*m2_w,BEB_2]
 
-    df1 = pd.Dataframe_from_dict(fam_dict_1,orient="index")
-    df2 = pd.Dataframe_from_dict(fam_dict_2,orient="index")
+    df1 = pd.DataFrame.from_dict(fam_dict_1,orient="index")
+    df1.columns = ["model0_w","model0_BEB_sites"]
+    df2 = pd.DataFrame.from_dict(fam_dict_2,orient="index")
+    df2.columns = ["background_w","foreground_w","model2_BEB_sites"]
     df = df1.join(df2)
-    df.columns = ["model0_w","model0_BEB_sites","background_w",
-    "foreground_w","model2_BEB_sites"]
-    df.to_csv("{}.csv".format(csv_name),sep="\t")
+    df.to_csv("{}".format(csv_name),sep="\t")
