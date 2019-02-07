@@ -1,0 +1,9 @@
+name: web_dev
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python
+  - pandas
+  - numpy
+  - flask
