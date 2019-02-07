@@ -1,0 +1,1 @@
+In this folder you will find scripts to automate using the CODEML package
