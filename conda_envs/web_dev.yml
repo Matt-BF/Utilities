@@ -7,3 +7,7 @@ dependencies:
   - pandas
   - numpy
   - flask
+  - flask-mail
+  - flask-wtf
+  - pip:
+    -  Flask-WeasyPrint
