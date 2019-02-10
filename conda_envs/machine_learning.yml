@@ -14,5 +14,8 @@ dependencies:
   - shap
   - imbalanced-learn
   - umap-learn
+  - xgboost
+  - catboost
+  - lightgdm
   - pip:
     - yellowbrick
