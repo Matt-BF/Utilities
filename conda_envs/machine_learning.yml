@@ -16,6 +16,6 @@ dependencies:
   - umap-learn
   - xgboost
   - catboost
-  - lightgdm
+  - lightgbm
   - pip:
     - yellowbrick
