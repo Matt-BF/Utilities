@@ -6,12 +6,20 @@ class Fetch:
     """
     Encapsulates 3 main fetch scripts from our lab by calling the right
     function based on txt file type:
-    fetch_fam --> 
+    fetch_fam --> txt file obtained from Orthofinder, containing family number
+    followed by proteins on that family. Outputs one fasta file for each family
+    fetch_seqs --> txt file containing sequences to find in the fasta file.
+    Outputs one fasta file with all the sequences
+    fetch_seqs_coords --> txt file containing the sequence, followed by the two
+    coordinates from which to get. Outputs a fasta file containing the
+    sequences at the required coordinates
     """
 
     def __init__(self, fasta_file, txt_file, jobs):
         """
-        docstring
+        Open and parse the fasta file and txt file required to run any
+        of the fetch scripts
+        jobs: number of cpu cores to use when running the script
         """
 
         self.jobs = int(jobs)
@@ -23,12 +31,13 @@ class Fetch:
 
     def call_fetch(self):
         """
-        docstring
+        Calls the appropriate fetch script according to file pattern
         """
         if len(self.names[0]) == 1:
             print("txt file matches fetch_seqs pattern")
             Fetch.fetch_seqs(self)
-        elif len(self.names[0]) == 3 and self.names[0][1].isdigit() and self.names[0][2].isdigit():
+        elif len(self.names[0]) == 3 and self.names[0][1].isdigit()\
+                and self.names[0][2].isdigit():
             print("txt file matches fetch_seqs_coords pattern")
             Fetch.fetch_seqs_coords(self)
         else:
@@ -92,7 +101,8 @@ class Fetch:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Usage: python3 fetch.py [txt file] [fasta file]")
+    parser = argparse.ArgumentParser(description="Usage: python3 \
+                                     fetch.py [txt file] [fasta file]")
     parser.add_argument("fasta_file")
     parser.add_argument("txt_file")
     parser.add_argument("--jobs", default=1)
