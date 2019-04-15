@@ -56,7 +56,7 @@ class Fetch:
 
         with open("{}.fasta".format(self.outfile_name), "w") as outfile:
             SeqIO.write(desired_seqs, outfile, "fasta")
-            print("Seqs written to {}".format(outfile))
+            print("Seqs written to {}.fasta".format(self.outfile_name))
 
     def fetch_fam(self):
         """
