@@ -9,5 +9,9 @@ dependencies:
   - flask
   - flask-mail
   - flask-wtf
+  - flask-login
+  - dnspython
+  
   - pip:
-    -  Flask-WeasyPrint
+    - Flask-WeasyPrint
+    - Flask-PyMongo
