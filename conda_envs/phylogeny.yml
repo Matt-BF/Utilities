@@ -10,7 +10,7 @@ dependencies:
   - numpy
   - mrbayes
   - iqtree
-  - codeml
+  - paml
   - mafft
   - amas
   - hyphy
