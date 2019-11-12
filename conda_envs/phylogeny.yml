@@ -1,0 +1,25 @@
+name: phylogeny
+
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+
+dependencies:
+  - orthofinder
+  - numpy
+  - mrbayes
+  - iqtree
+  - paml
+  - mafft
+  - amas
+  - hyphy
+  - hmmer
+  - ete3
+  - newick_utils
+  - trimal
+  - raxml
+  - cd-hit
+  - booster
+  - blast
+  - biopython

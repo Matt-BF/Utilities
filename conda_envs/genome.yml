@@ -1,0 +1,33 @@
+name: genome
+
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+  
+dependencies:
+  - adapterremoval
+  - assembly-stats
+  - blast
+  - bowtie2
+  - bwa
+  - bzip2
+  - cap3
+  - exonerate
+  - fastool
+  - fastqc
+  - gatk4
+  - jellyfish
+  - mummer
+  - pear
+  - perl
+  - picard
+  - pyvcf
+  - samtools
+  - soapdenovo2
+  - spades
+  - tbb
+  - transdecoder
+  - trimmomatic
+  - trinity
+  - vcftools
