@@ -20,6 +20,8 @@ dependencies:
   - newick_utils
   - trimal
   - raxml
+  - seqmagick
+  - snakemake
   - cd-hit
   - booster
   - blast
