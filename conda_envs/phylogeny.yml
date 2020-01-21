@@ -6,6 +6,7 @@ channels:
   - conda-forge
 
 dependencies:
+  - python >=3.6
   - orthofinder
   - numpy
   - mrbayes
@@ -23,3 +24,7 @@ dependencies:
   - booster
   - blast
   - biopython
+  - pip
+  - pip:
+    - phyphy
+  
