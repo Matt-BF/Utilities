@@ -6,6 +6,7 @@ channels:
   - conda-forge
 
 dependencies:
+  - python >=3.6
   - orthofinder
   - numpy
   - mrbayes
@@ -19,7 +20,13 @@ dependencies:
   - newick_utils
   - trimal
   - raxml
+  - seqmagick
+  - snakemake
   - cd-hit
   - booster
   - blast
   - biopython
+  - pip
+  - pip:
+    - phyphy
+  
