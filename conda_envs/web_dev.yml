@@ -3,14 +3,47 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python
-  - pandas
-  - numpy
+  - altair
+  - cairosvg
+  - certifi
+  - chardet
+  - cryptography
+  - cssselect2
+  - dnspython
+  - docxtpl
+  - ephem
   - flask
+  - flask-login
   - flask-mail
   - flask-wtf
-  - flask-login
-  - dnspython
+  - gspread
+  - html5lib
+  - httplib2
+  - jinja2
+  - lunardate
+  - numpy
+  - oauth2client
+  - pandas
+  - pycalverter
+  - pycparser
+  - pyluach
+  - pyopenssl
+  - python-dateutil
+  - pytz
+  - readline
+  - requests
+  - setuptools
+  - six
+  - tinycss2
+  - toml
+  - traitlets
+  - urllib3
+  - weasyprint
+  - webencodings
+  - werkzeug
+  - wheel
+  - workalendar
+  - wtforms
   
   - pip:
     - Flask-WeasyPrint
