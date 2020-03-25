@@ -27,6 +27,7 @@ dependencies:
   - blast
   - biopython
   - pip
+  - mmseqs2
   - pip:
     - phyphy
   
