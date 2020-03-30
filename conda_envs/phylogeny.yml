@@ -28,6 +28,4 @@ dependencies:
   - biopython
   - pip
   - mmseqs2
-  - pip:
-    - phyphy
   
