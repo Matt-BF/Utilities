@@ -28,6 +28,7 @@ dependencies:
   - biopython
   - pip
   - mmseqs2
+  - jupyter-notebook
   - pip:
     - phyphy
   
