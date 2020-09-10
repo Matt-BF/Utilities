@@ -11,4 +11,3 @@ dependencies:
   - r-tidyverse
   - bioconductor-ggtree
   - jupyter
-  - jupyter-lab
