@@ -1,8 +1,14 @@
 name: r_env
 channels:
+  - defaults
+  - conda-forge
   - r
+  - bioconda
 dependencies:
   - r-base
   - rstudio
   - r-essentials
   - r-tidyverse
+  - bioconductor-ggtree
+  - jupyter
+  - jupyter-lab
