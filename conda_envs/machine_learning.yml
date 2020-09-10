@@ -18,6 +18,7 @@ dependencies:
   - catboost
   - lightgbm
   - mlxtend
-  - jupyter-notebook
+  - jupyter
+  - jupyter-lab
   - pip:
     - yellowbrick
