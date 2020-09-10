@@ -10,4 +10,4 @@ dependencies:
   - r-essentials
   - r-tidyverse
   - bioconductor-ggtree
-  - jupyter
+  - jupyterlab
