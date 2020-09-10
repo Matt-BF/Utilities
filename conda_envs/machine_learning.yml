@@ -19,6 +19,6 @@ dependencies:
   - lightgbm
   - mlxtend
   - jupyter
-  - jupyter-lab
+  - jupyterlab
   - pip:
     - yellowbrick
