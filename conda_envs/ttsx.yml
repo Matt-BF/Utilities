@@ -1,0 +1,13 @@
+name: tts
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - pylint
+  - python>=3.8
+  - pypdf2
+  - black
+  
+  - pip:
+    - pyttsx3
