@@ -1,190 +1,167 @@
-name: web_dev
+name: google
 channels:
   - conda-forge
   - defaults
 dependencies:
   - _libgcc_mutex
-  - alembic
-  - altair
-  - amqp
+  - _openmp_mutex
+  - aiohttp
   - appdirs
   - astroid
+  - async-timeout
+  - async_generator
   - attrs
   - beautifulsoup4
-  - billiard
   - black
-  - blas
+  - bleach
   - blinker
   - brotlipy
   - ca-certificates
-  - cairo
-  - cairocffi
-  - cairosvg
-  - celery
+  - cachetools
   - certifi
   - cffi
   - chardet
   - click
-  - click-didyoumean
-  - click-repl
   - cryptography
-  - cssselect2
   - cycler
+  - dataclasses
+  - dataframe_image
   - dbus
-  - decorator
   - defusedxml
-  - dnspython
-  - docxtpl
   - entrypoints
-  - ephem
+  - et_xmlfile
   - expat
-  - flake8
-  - flask
-  - flask-login
-  - flask-mail
-  - flask-migrate
-  - flask-sqlalchemy
-  - flask-wtf
   - fontconfig
   - freetype
-  - fribidi
+  - gettext
   - glib
-  - graphite2
+  - google-auth
+  - google-auth-oauthlib
   - gspread
   - gst-plugins-base
   - gstreamer
-  - harfbuzz
-  - html5lib
   - httplib2
   - icu
   - idna
   - importlib-metadata
   - importlib_metadata
-  - intel-openmp
   - ipython_genutils
   - isort
-  - itsdangerous
+  - jdcal
   - jinja2
   - jpeg
-  - jplephem
   - jsonschema
+  - jupyter_client
+  - jupyter_core
+  - jupyterlab_pygments
   - kiwisolver
-  - kombu
+  - krb5
   - lazy-object-proxy
   - lcms2
   - ld_impl_linux-64
+  - libblas
+  - libcblas
+  - libclang
   - libedit
+  - libevent
   - libffi
   - libgcc-ng
   - libgfortran-ng
+  - libgfortran5
+  - libgomp
+  - libiconv
+  - liblapack
+  - libllvm10
+  - libopenblas
   - libpng
+  - libpq
+  - libsodium
   - libstdcxx-ng
   - libtiff
   - libuuid
+  - libwebp-base
   - libxcb
+  - libxkbcommon
   - libxml2
-  - libxslt
-  - lunardate
-  - lxml
   - lz4-c
-  - mako
   - markupsafe
   - matplotlib
   - matplotlib-base
   - mccabe
-  - mkl
-  - mkl-service
-  - mkl_fft
-  - mkl_random
+  - mistune
+  - multidict
   - mypy_extensions
+  - mysql-common
+  - mysql-libs
+  - nbclient
+  - nbconvert
+  - nbformat
   - ncurses
+  - nest-asyncio
+  - nspr
+  - nss
   - numpy
-  - numpy-base
   - oauth2client
+  - oauthlib
   - olefile
+  - openpyxl
   - openssl
+  - packaging
   - pandas
-  - pango
+  - pandoc
+  - pandocfilters
   - pathspec
   - pcre
   - pillow
   - pip
-  - pixman
-  - prompt-toolkit
-  - prompt_toolkit
+  - pthread-stubs
   - pyasn1
   - pyasn1-modules
-  - pycalverter
-  - pycodestyle
   - pycparser
-  - pyflakes
   - pygments
+  - pyjwt
   - pylint
-  - pyluach
   - pyopenssl
   - pyparsing
-  - pypdf2
-  - pyphen
   - pyqt
   - pyrsistent
   - pysocks
   - python
   - python-dateutil
-  - python-docx
-  - python-editor
   - python_abi
   - pytz
+  - pyzmq
   - qt
   - readline
-  - redis
-  - redis-py
   - regex
   - requests
+  - requests-oauthlib
   - rsa
-  - selenium
   - setuptools
-  - sgp4
-  - sip
   - six
-  - skyfield
-  - skyfield-data
   - soupsieve
-  - sqlalchemy
   - sqlite
-  - tinycss2
+  - testpath
   - tk
   - toml
-  - toolz
   - tornado
-  - tqdm
   - traitlets
   - typed-ast
   - typing_extensions
   - urllib3
-  - vine
-  - wcwidth
-  - weasyprint
-  - webdrivermanager
   - webencodings
-  - werkzeug
   - wheel
-  - workalendar
   - wrapt
-  - wtforms
-  - xlrd
-  - xorg-kbproto
-  - xorg-libx11
-  - xorg-libxext
-  - xorg-libxrender
-  - xorg-renderproto
-  - xorg-xextproto
-  - xorg-xproto
+  - xorg-libxau
+  - xorg-libxdmcp
   - xz
+  - yarl
+  - zeromq
   - zipp
   - zlib
   - zstd
   - pip:
-    - flask-pymongo
-    - flask-weasyprint
-    - pymongo
-prefix: /home/matt/anaconda3/envs/web_dev
+    - pyqt5-sip
+    - pyqtchart
+    - pyqtwebengine
+prefix: /home/matt/anaconda3/envs/google
