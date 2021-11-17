@@ -1,0 +1,11 @@
+name: docking
+channels:
+  - defaults
+  - conda-forge
+  - schrodinger
+  - bioconda
+dependencies:
+  - python >=3.7
+  - pdbfixer
+  - autodock-vina
+  - pymol-open-source 
